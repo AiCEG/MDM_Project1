@@ -2,4 +2,9 @@
 .venv/
 venv-3.10/
 venv-3.11/
+
+# Ignore node_modules folders at any level
 **/node_modules/
+
+# Ignore specific files
+calculations.py

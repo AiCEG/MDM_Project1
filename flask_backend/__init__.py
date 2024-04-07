@@ -18,7 +18,9 @@ from tensorflow.keras.callbacks import EarlyStopping
 from flask_cors import CORS
 import pickle
 
-
+import threading
+from sentimentmodel import train_sentiment_model
+from scraper import scrape_review_data
 
 
 def create_model():
@@ -80,6 +82,21 @@ def create_app(test_config=None):
 
         # Return the predictions
         return jsonify({"predictions": interpreted_predictions})
+
+
+    @app.route('/train', methods=['GET'])
+    def train():
+        thread = threading.Thread(target=train_sentiment_model)
+        thread.start()
+        return jsonify({"message": "Training started."}), 202
+
+
+    @app.route('/scrape', methods=['GET'])
+    def scrape():
+        thread = threading.Thread(target=scrape_review_data)
+        thread.start()
+        return jsonify({"message": "Scraping started."}), 202
+
 
     # a simple page that says hello
     @app.route('/hello')

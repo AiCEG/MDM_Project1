@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  backend:
+    build: ./backend # Adjust this path to where your Flask Dockerfile is located
+    ports:
+      - "5000:5000"
+  frontend:
+    build: ./frontend # Adjust this path to where your Svelte Dockerfile is located
+    ports:
+      - "8080:8080"

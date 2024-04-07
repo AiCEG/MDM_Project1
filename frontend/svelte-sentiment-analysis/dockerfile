@@ -18,8 +18,8 @@ RUN npm run build
 
 RUN npm install -g serve
 
-# Make port 5000 available to the world outside this container
+# Make port 8080 available to the world outside this container
 EXPOSE 8080
 
 # Define the command to serve the Svelte app
-CMD ["serve", "-s", "build", "-l", "8080"]
+CMD npm run start

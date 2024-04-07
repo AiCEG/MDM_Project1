@@ -12,10 +12,14 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of your application
-COPY . .
+COPY ./ ./
+
+COPY sentimentmodel.py sentimentmodel.py
+
+COPY scraper.py scraper.py
 
 # Expose the port your app runs on
 EXPOSE 5000
 
 # Define the command to run your app (adjust as necessary)
-CMD ["python", "app.py"]
+CMD flask --app ./__init__.py run --host=0.0.0.0

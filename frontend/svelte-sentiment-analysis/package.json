@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
+    "start": "sirv public --no-clear --host 127.0.0.1",
     "start:flask": "cd ./../../ && flask --app flask_backend run",
     "start:dev": "concurrently \"npm run start\" \"npm run start:flask\""
   },

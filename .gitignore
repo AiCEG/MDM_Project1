@@ -1,0 +1,5 @@
+# Ignore virtual environment folders
+.venv/
+venv-3.10/
+venv-3.11/
+**/node_modules/
